@@ -1,8 +1,8 @@
 use crate::actor_handlers::TeamData;
 use crate::frame_parser::FrameParser;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Team {
     score: i32,
     is_orange: bool,

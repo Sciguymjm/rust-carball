@@ -1,10 +1,10 @@
 use crate::replay_properties_to_hash_map;
 use boxcars::{HeaderProp, Replay};
 use log::error;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Game {
     pub id: String,
     pub replay_version: i32,
@@ -89,7 +89,7 @@ impl Game {
     }
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Goal {
     pub frame: i32,
     pub player_name: String,

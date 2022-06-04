@@ -3,11 +3,10 @@ use crate::frame_parser::FrameParser;
 use boxcars::attributes::RemoteId;
 use boxcars::{ActorId, Attribute};
 use log::error;
-use serde::Serialize;
-use serde::Serializer;
+use serde::{Serialize, Serializer, Deserialize};
 use std::collections::HashMap;
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Player {
     #[serde(serialize_with = "serialize_wrapped_unique_id")]
     pub unique_id: WrappedUniqueId,
