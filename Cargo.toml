@@ -13,7 +13,7 @@ lazy_static = "1.4.0"
 serde = "1.0.136"
 serde_json = "1.0.79"
 indicatif = "0.16.2"
-polars = { version = "0.19.1", features = ["dtype-u8"] }
+polars = { version = "0.19.1", features = ["dtype-u8", "serde"] }
 ndarray = "0.15.4"
 ndarray-stats = "0.5.0"
 # nalgebra = "0.18.1"
@@ -28,7 +28,7 @@ path = "benches/bench.rs"
 name = "bench_parsing"
 harness = false
 
-[profile.release] 
+[profile.release]
 debug = true
 
 

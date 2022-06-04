@@ -4,14 +4,14 @@ use crate::outputs::{DataFramesOutput, MetadataOutput, Player};
 use log::warn;
 use polars::error::PolarsError;
 use polars::prelude::{BooleanChunked, ChunkAgg, ChunkApply, ChunkCompare, ChunkFilter, DataFrame};
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use std::collections::{HashMap, HashSet};
 use thiserror::Error;
 
 static BOOST_PER_SECOND: f32 = 85.0 / 2.55;
 static PITCH_Y_THIRD_THRESHOLD: f32 = 10240.0 / 3.0 / 2.0;
 
-#[derive(Debug, Clone, PartialEq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Stats {
     pub players: HashMap<WrappedUniqueId, PlayerStats>,
 }
@@ -65,7 +65,7 @@ impl Stats {
     }
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 pub struct PlayerStats {
     // Boost
     pub big_pads_collected: u32,

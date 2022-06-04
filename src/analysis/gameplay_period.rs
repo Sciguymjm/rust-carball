@@ -1,10 +1,10 @@
 use crate::outputs::{DataFramesOutput, MetadataOutput};
 use log::*;
 use polars::prelude::{AnyValue, Series};
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use std::convert::TryInto;
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct GameplayPeriod {
     pub start_frame: i32,
     pub end_frame: i32,

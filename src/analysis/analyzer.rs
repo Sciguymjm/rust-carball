@@ -2,12 +2,12 @@ use crate::analysis::GameplayPeriod;
 use crate::analysis::{Hit, HitDetectionError, Stats, StatsGenerationError};
 use crate::outputs::{DataFramesOutput, MetadataOutput};
 use crate::CarballParser;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use std::fs::File;
 use std::path::PathBuf;
 use thiserror::Error;
 
-#[derive(Debug, Clone, Serialize)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CarballAnalyzer {
     pub hits: Vec<Hit>,
     pub stats: Stats,

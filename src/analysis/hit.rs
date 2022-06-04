@@ -3,7 +3,7 @@ use crate::analysis::{predict_ball_bounce, BallPredictionError};
 use crate::frame_parser::FrameParser;
 use crate::outputs::MetadataOutput;
 use log::{error, warn};
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use std::cmp::Ordering;
 use std::collections::HashMap;
 use thiserror::Error;
@@ -17,7 +17,7 @@ enum IsHitConclusion {
     NotHit,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Hit {
     pub frame_number: usize,
     pub player_unique_id: WrappedUniqueId,
@@ -25,7 +25,7 @@ pub struct Hit {
     pub _debug_info: HitDebugInfo,
 }
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct HitDebugInfo {
     pub hit_team_num_changed: bool,
     pub ang_vel_changed: bool,
@@ -190,9 +190,9 @@ impl Hit {
                                             {
                                                 if nearest_distance > MAX_HIT_CAR_DISTANCE {
                                                     warn!(
-                                                        "Found hit on frame {} where nearest player ({}) is far from ball: {} uu. Hit is ignored.", 
+                                                        "Found hit on frame {} where nearest player ({}) is far from ball: {} uu. Hit is ignored.",
                                                         frame_number,
-                                                        nearest_player.to_string(), 
+                                                        nearest_player.to_string(),
                                                         nearest_distance,
                                                     );
                                                 } else {

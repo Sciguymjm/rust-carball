@@ -11,7 +11,7 @@ use polars::error::PolarsError;
 use polars::prelude::{
     DataFrame, Float32Chunked, Int32Chunked, IntoSeries, NewChunkedArray, UInt8Chunked,
 };
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 use std::collections::HashMap;
 use std::fmt::Debug;
 use thiserror::Error;
@@ -35,7 +35,7 @@ impl MetadataOutput {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DataFramesOutput {
     pub game: DataFrame,
     pub ball: DataFrame,

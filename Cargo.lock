@@ -1348,6 +1348,7 @@ dependencies = [
  "prettytable-rs",
  "rayon",
  "regex",
+ "serde",
  "thiserror",
  "unsafe_unwrap",
 ]
