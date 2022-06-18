@@ -158,7 +158,7 @@ fn rotator_to_quat(pitch: f32, yaw: f32, roll: f32) -> (f32, f32, f32, f32) {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct WrappedUniqueId(UniqueId);
+pub struct WrappedUniqueId(pub(crate) UniqueId);
 
 impl WrappedUniqueId {
   pub fn from(attributes: &HashMap<String, Attribute>) -> Self {

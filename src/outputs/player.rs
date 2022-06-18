@@ -1,6 +1,6 @@
 use crate::actor_handlers::{TeamData, WrappedUniqueId};
 use crate::frame_parser::FrameParser;
-use boxcars::attributes::RemoteId;
+use boxcars::attributes::{RemoteId, UniqueId};
 use boxcars::{ActorId, Attribute};
 use log::error;
 use serde::{Serialize, Serializer, Deserialize};
@@ -8,7 +8,7 @@ use std::collections::HashMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Player {
-    #[serde(skip)]
+    #[serde(skip, default="default_id")]
     pub unique_id: WrappedUniqueId,
     pub name: String,
     pub online_id: Option<String>,
@@ -19,6 +19,16 @@ pub struct Player {
     pub match_assists: i32,
     pub match_saves: i32,
     pub match_shots: i32,
+}
+
+fn default_id() -> WrappedUniqueId {
+    WrappedUniqueId {
+        0: UniqueId {
+            system_id: 0,
+            remote_id: RemoteId::Epic("".to_string()),
+            local_id: 0
+        }
+    }
 }
 
 impl Player {
