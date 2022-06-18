@@ -8,7 +8,7 @@ use std::collections::HashMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Player {
-    // #[serde(serialize_with = "serialize_wrapped_unique_id")]
+    #[serde(skip)]
     pub unique_id: WrappedUniqueId,
     pub name: String,
     pub online_id: Option<String>,
