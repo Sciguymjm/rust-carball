@@ -17,7 +17,7 @@ enum IsHitConclusion {
     NotHit,
 }
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Hit {
     pub frame_number: usize,
     pub player_unique_id: WrappedUniqueId,

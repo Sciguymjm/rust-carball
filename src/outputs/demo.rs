@@ -2,7 +2,7 @@ use crate::actor_handlers::{DemoData, WrappedUniqueId};
 use crate::frame_parser::FrameParser;
 use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct Demo {
     frame_number: i32,
     attacker_unique_id: WrappedUniqueId,

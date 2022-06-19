@@ -16,7 +16,7 @@ use std::collections::HashMap;
 use std::fmt::Debug;
 use thiserror::Error;
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct MetadataOutput {
     pub game: Game,
     pub teams: Vec<Team>,
@@ -35,7 +35,7 @@ impl MetadataOutput {
     }
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize)]
 pub struct DataFramesOutput {
     pub game: DataFrame,
     pub ball: DataFrame,

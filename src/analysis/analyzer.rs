@@ -7,7 +7,7 @@ use std::fs::File;
 use std::path::PathBuf;
 use thiserror::Error;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize)]
 pub struct CarballAnalyzer {
     pub hits: Vec<Hit>,
     pub stats: Stats,

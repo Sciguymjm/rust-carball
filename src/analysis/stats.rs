@@ -11,7 +11,7 @@ use thiserror::Error;
 static BOOST_PER_SECOND: f32 = 85.0 / 2.55;
 static PITCH_Y_THIRD_THRESHOLD: f32 = 10240.0 / 3.0 / 2.0;
 
-#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize)]
 pub struct Stats {
     pub players: HashMap<WrappedUniqueId, PlayerStats>,
 }

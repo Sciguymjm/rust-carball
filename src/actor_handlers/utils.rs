@@ -2,7 +2,7 @@ use crate::frame_parser::Actor;
 use boxcars::attributes::{RemoteId, UniqueId};
 use boxcars::Attribute;
 use log::warn;
-use serde::{Serialize, Deserialize};
+use serde::{Serialize, Deserialize, Serializer};
 use std::collections::{hash_map::DefaultHasher, HashMap};
 use std::fmt;
 use std::hash::{Hash, Hasher};
@@ -157,8 +157,8 @@ fn rotator_to_quat(pitch: f32, yaw: f32, roll: f32) -> (f32, f32, f32, f32) {
   (w / norm, x / norm, y / norm, z / norm)
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct WrappedUniqueId(pub(crate) UniqueId);
+#[derive(Debug, Clone)]
+pub struct WrappedUniqueId(UniqueId);
 
 impl WrappedUniqueId {
   pub fn from(attributes: &HashMap<String, Attribute>) -> Self {
@@ -229,14 +229,14 @@ impl fmt::Display for WrappedUniqueId {
   }
 }
 
-// impl Serialize for WrappedUniqueId {
-//   fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-//     where
-//       S: Serializer,
-//   {
-//     serializer.serialize_str(&self.to_string())
-//   }
-// }
+impl Serialize for WrappedUniqueId {
+  fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+    where
+      S: Serializer,
+  {
+    serializer.serialize_str(&self.to_string())
+  }
+}
 //
 // impl<'de: 'a, 'a> Deserialize<'de> for WrappedUniqueId {
 //   fn deserialize<D>(_deserializer: D) -> Result<Self, D::Error>
