@@ -1,6 +1,6 @@
 use crate::actor_handlers::{DemoData, WrappedUniqueId};
 use crate::frame_parser::FrameParser;
-use serde::{Serialize, Deserialize};
+use serde::Serialize;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
 pub struct Demo {

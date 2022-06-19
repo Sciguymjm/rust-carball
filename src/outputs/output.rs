@@ -11,7 +11,7 @@ use polars::error::PolarsError;
 use polars::prelude::{
     DataFrame, Float32Chunked, Int32Chunked, IntoSeries, NewChunkedArray, UInt8Chunked,
 };
-use serde::{Serialize, Deserialize};
+use serde::Serialize;
 use std::collections::HashMap;
 use std::fmt::Debug;
 use thiserror::Error;

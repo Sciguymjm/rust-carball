@@ -1,9 +1,9 @@
 use crate::actor_handlers::{TeamData, WrappedUniqueId};
 use crate::frame_parser::FrameParser;
-use boxcars::attributes::{RemoteId, UniqueId};
+use boxcars::attributes::RemoteId;
 use boxcars::{ActorId, Attribute};
 use log::error;
-use serde::{Serialize, Serializer, Deserialize};
+use serde::Serialize;
 use std::collections::HashMap;
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize)]
@@ -118,13 +118,6 @@ impl Player {
             },
         }
     }
-}
-
-fn serialize_wrapped_unique_id<S>(input: &WrappedUniqueId, serializer: S) -> Result<S::Ok, S::Error>
-where
-    S: Serializer,
-{
-    serializer.serialize_str(&input.to_string())
 }
 
 /// Tries to get the player's team through FrameParser's running count of whether the team.

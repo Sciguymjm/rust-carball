@@ -2,7 +2,7 @@ use crate::frame_parser::Actor;
 use boxcars::attributes::{RemoteId, UniqueId};
 use boxcars::Attribute;
 use log::warn;
-use serde::{Serialize, Deserialize, Serializer};
+use serde::{Serialize, Serializer};
 use std::collections::{hash_map::DefaultHasher, HashMap};
 use std::fmt;
 use std::hash::{Hash, Hasher};

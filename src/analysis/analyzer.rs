@@ -2,7 +2,7 @@ use crate::analysis::GameplayPeriod;
 use crate::analysis::{Hit, HitDetectionError, Stats, StatsGenerationError};
 use crate::outputs::{DataFramesOutput, MetadataOutput};
 use crate::CarballParser;
-use serde::{Serialize, Deserialize};
+use serde::Serialize;
 use std::fs::File;
 use std::path::PathBuf;
 use thiserror::Error;

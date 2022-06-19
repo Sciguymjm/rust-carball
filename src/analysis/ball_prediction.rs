@@ -3,7 +3,7 @@ use crate::actor_handlers::TimeSeriesBallData;
 // use std::sync::Mutex;
 use thiserror::Error;
 
-static PHYSICS_TICK_DELTA: f32 = 1.0 / 120.0;
+// static PHYSICS_TICK_DELTA: f32 = 1.0 / 120.0;
 
 pub fn predict_ball_bounce(
     _ball_data: &TimeSeriesBallData,
