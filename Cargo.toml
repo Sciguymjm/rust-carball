@@ -14,7 +14,7 @@ serde = "1.0.136"
 serde_json = "1.0.79"
 indicatif = "0.16.2"
 polars = { version = "0.19.1", features = ["dtype-u8", "serde"] }
-ndarray = "0.15.4"
+ndarray = "^0.15"
 ndarray-stats = "0.5.0"
 # nalgebra = "0.18.1"
 thiserror = "1.0.30"
